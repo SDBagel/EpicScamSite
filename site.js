@@ -1,31 +1,19 @@
 var number, interval, iterations = 0;
-var startButton, skipButton;
 
 document.addEventListener("DOMContentLoaded", function() {
   number = document.getElementById("number");
-  skipButton = document.getElementById("skipButton");
-  startButton = document.getElementById("startButton");
-  document.getElementById("overlay").style.opacity = 1;
-  document.getElementById("cookiepolicy").style.display = "block";
-});
-
-function start() {
-  startButton.style.opacity = 0;
-  setTimeout(() => {
-    startButton.style.display = "none";
-  }, 1000);
   interval = setInterval(function() {
     iterateNumeral();
   }, 1000);
-}
+});
 
 function iterateNumeral() {
-  if (Number(number.innerText) == 5) {
-    skipButton.style.opacity = 1;
-  }
   if (Number(number.innerText) == 24) {
     clearInterval(interval);
-    skipButton.style.opacity = 0;
+    document.getElementById("skipButton").style.opacity = 0;
+    setTimeout(() => {
+      document.getElementById("skipButton").display = "none";
+    }, 1000);
     number.innerText = number.innerText + ".1";
     interval = setInterval(function() {
       addDecimal();
@@ -49,24 +37,8 @@ function addDecimal() {
 
 function skip() {
   number.innerText = 24;
-  skipButton.style.opacity = 0;
-}
-
-var popups = ["cookiepolicy", "newsletter", "donate"];
-var index = 0;
-function iteratePopup() {
-  document.getElementById("overlay").style.opacity = 0;
+  document.getElementById("skipButton").style.opacity = 0;
   setTimeout(() => {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("skipButton").display = "none";
   }, 1000);
-
-  document.getElementById(popups[index]).style.display = "none";
-
-  if (index < popups.length)
-    index++;
-    setTimeout(() => {
-      document.getElementById(popups[index]).style.display = "block";
-      document.getElementById("overlay").style.display = "block";
-      document.getElementById("overlay").style.opacity = 1;
-    }, 10000);
 }
