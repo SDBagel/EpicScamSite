@@ -30,11 +30,14 @@ section h3 {
 
 footer {
   background-color: #32292f;
-  min-height: 10rem;
   padding: 2rem;
   color: #f4f4f4;
 }
 
 footer > p {
   color: #93a3b1;
+}
+
+footer a {
+  color: #abc;
 }
