@@ -1,3 +1,7 @@
+::selection {
+  background-color: rgb(255, 115, 0);
+}
+
 html {
   font-family: 'Nunito', sans-serif;
   font-size: 24px;
@@ -41,7 +45,35 @@ section button {
   color: #fff;
   font-family: 'Nunito', sans-serif;
   font-size: 30px;
-  padding: 20px 40px;
+  margin: 10px;
+  padding: 15px 40px;
+  overflow: none;
+}
+
+#skipButton {
+  opacity: 0;
+}
+
+#overlay {
+  transition-duration: 1s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlaycard {
+  display: none;
+  background-color: #ebaa;
+  border-radius: 20px;
+  font-size: 24px;
 }
 
 footer {
