@@ -4,57 +4,41 @@ document.addEventListener("DOMContentLoaded", function() {
   number = document.getElementById("number");
   interval = setInterval(function() {
     iterateNumeral();
-  }, 2000);
+  }, 1000);
 });
 
-// function modified from https://github.com/daneden/animate.css
-function animateCSS(element, animationName, callback) {
-  const node = element;
-  node.classList.add('animated', animationName)
-
-  function handleAnimationEnd() {
-      node.classList.remove('animated', animationName)
-      node.removeEventListener('animationend', handleAnimationEnd)
-
-      if (typeof callback === 'function') callback()
-  }
-
-  node.addEventListener('animationend', handleAnimationEnd)
-}
-
 function iterateNumeral() {
-  animateCSS(number, "fadeOutDown", function() {
+  if (Number(number.innerText) == 24) {
+    clearInterval(interval);
+    document.getElementById("skipButton").style.opacity = 0;
+    setTimeout(() => {
+      document.getElementById("skipButton").display = "none";
+    }, 1000);
+    number.innerText = number.innerText + ".1";
+    interval = setInterval(function() {
+      addDecimal();
+    }, 1000);
+  }
+  else 
     number.innerText = Number(number.innerText) + 1;
-    animateCSS(number, "fadeInDown", function() {
-      if (Number(number.innerText) == 24) {
-        clearInterval(interval);
-        setTimeout(() => {
-          animateCSS(number, "fadeOutDown", function() {
-            number.innerText = number.innerText + ".1";
-            animateCSS(number, "fadeInDown", null);
-          });
-          interval = setInterval(function() {
-            addDecimal();
-          }, 2000);
-        }, 1000);
-      }
-    });
-  });
 }
 
 function addDecimal() {
   var endNumber = Number(number.innerText.slice(-1));
   if (endNumber == 9) {
     iterations += 1;
-    animateCSS(number, "fadeOutDown", function() {
-      number.innerText = number.innerText + 1;
-      animateCSS(number, "fadeInDown");
-    });
+    number.innerText = number.innerText + 1;
+    number.style.transform = "translateX(-" + (iterations * 72) + "px)";
   }
   else {
-    animateCSS(number, "fadeOutDown", function() {
-      number.innerText = "24." + "9".repeat(iterations) + (endNumber + 1);
-      animateCSS(number, "fadeInDown");
-    });
+    number.innerText = "24." + "9".repeat(iterations) + (endNumber + 1);
   }
+}
+
+function skip() {
+  number.innerText = 24;
+  document.getElementById("skipButton").style.opacity = 0;
+  setTimeout(() => {
+    document.getElementById("skipButton").display = "none";
+  }, 1000);
 }
