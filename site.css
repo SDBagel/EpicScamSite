@@ -28,7 +28,7 @@ section h1 {
   transition-duration: 1s;
 }
 
-section p {
+#percent {
   font-size: 24px;
   margin-top: -50px;
   margin-bottom: 50px;
