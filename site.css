@@ -28,6 +28,12 @@ section h1 {
   transition-duration: 1s;
 }
 
+section p {
+  font-size: 24px;
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+
 section h3 {
   font-size: 30px;
 }
