@@ -15,12 +15,17 @@ function iterateNumeral() {
       document.getElementById("skipButton").display = "none";
     }, 1000);
     number.innerText = number.innerText + ".1";
-    interval = setInterval(function() {
-      addDecimal();
-    }, 1000);
+    recursive();
   }
   else 
     number.innerText = Number(number.innerText) + 1;
+}
+
+function recursive() {
+  setTimeout(function() { 
+    addDecimal();
+    recursive();
+  }, Math.max((1000 - (200 * iterations)), 200));
 }
 
 function addDecimal() {
