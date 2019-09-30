@@ -18,9 +18,9 @@ function iterateNumeral() {
     document.getElementById("skipButton").style.opacity = 0;
     setTimeout(() => {
       document.getElementById("skipButton").style.display = "none";
+      document.getElementById("gofasterbutton").style.opacity = 1;
     }, 1000);
     number.innerText = number.innerText + ".1";
-    document.getElementById("gofasterbutton").style.opacity = 1;
     recursive();
   }
   else 
