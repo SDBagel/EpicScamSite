@@ -2,6 +2,7 @@ html {
   font-family: 'Nunito', sans-serif;
   font-size: 24px;
   font-weight: 100;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,14 +29,31 @@ section h1 {
   transition-duration: 1s;
 }
 
+#skipButton {
+  transition-duration: 1s;
+  opacity: 0;
+}
+
+#gofasterbutton {
+  transition-duration: 1s;
+  opacity: 0;
+}
+
 #percent {
   font-size: 24px;
   margin-top: -50px;
   margin-bottom: 50px;
 }
 
+#claim {
+  display: none;
+  opacity: 0;
+  transition-duration: 1s;
+}
+
 section h3 {
   font-size: 30px;
+  margin: 0;
 }
 
 section button {
@@ -60,6 +78,6 @@ footer > p {
   color: #93a3b1;
 }
 
-footer a {
+a {
   color: #abc;
 }
