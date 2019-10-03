@@ -18,9 +18,13 @@ section {
 }
 
 section > div {
+  background-color: #f76a;
+  backdrop-filter: blur(2px);
+  border-radius: 50px;
   font-size: 80px;
   text-align: center;
   width: 320px;
+  padding: 0.5rem;
   margin: auto;
 }
 
@@ -32,6 +36,14 @@ section h1 {
 #skipButton {
   transition-duration: 1s;
   opacity: 0;
+}
+
+#ad {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #gofasterbutton {
